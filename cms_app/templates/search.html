@@ -1,0 +1,34 @@
+<!-- search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <!-- Add your stylesheets or other head elements here -->
+    <style>
+        /* Your styles go here */
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+
+    <p>Search results for "{{ query }}":</p>
+
+    {% if results %}
+        <div class="row">
+            {% for author in results %}
+                <div class="card" style="width: 18rem; margin-left: 105px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ author.title }}</h5>
+                        <p class="card-text">{{ author.body }}</p>
+                        <p class="card-text">Author: {{ author.author.username }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>
